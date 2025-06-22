@@ -7,7 +7,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Mutasi extends Model
 {
-   protected $fillable = ['user_id', 'produk_id', 'lokasi_id', 'tanggal', 'jenis_mutasi', 'jumlah', 'keterangan'];
+   protected $fillable = [
+    'user_id',
+    'produk_id',
+    'lokasi_asal_id',
+    'lokasi_tujuan_id',
+    'tanggal',
+    'jenis_mutasi',
+    'jumlah',
+    'keterangan'
+   ];
+
 
     public function user(): BelongsTo
     {
@@ -19,8 +29,13 @@ class Mutasi extends Model
         return $this->belongsTo(Produk::class);
     }
 
-    public function lokasi(): BelongsTo
-    {
-        return $this->belongsTo(Lokasi::class);
-    }
+    public function lokasiAsal(): BelongsTo
+   {
+    return $this->belongsTo(Lokasi::class, 'lokasi_asal_id');
+   }
+
+   public function lokasiTujuan(): BelongsTo
+   {
+    return $this->belongsTo(Lokasi::class, 'lokasi_tujuan_id');
+   }
 }

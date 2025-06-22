@@ -88,8 +88,10 @@ Authorization: Bearer <token>
 
 #### 🔸 Mutasi
 
-- `GET /api/mutasi`
 - `POST /api/mutasi`
+- `GET /api/mutasi/produk/{id}` – History berdasarkan Produk
+- `GET /api/mutasi/user/{id}` – History berdasarkan User
+- `GET /user/{id}/history` – Alternatif endpoint history user
 - `PUT /api/mutasi/{id}`
 - `DELETE /api/mutasi/{id}`
 

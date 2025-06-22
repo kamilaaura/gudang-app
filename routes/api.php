@@ -36,9 +36,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/lokasi/{id}', [LokasiController::class, 'destroy']);
 
     // 🔄 Mutasi (CRUD)
-    Route::apiResource('mutasi', MutasiController::class);
+    Route::get('/mutasi', [MutasiController::class, 'index']);
+    Route::post('/mutasi', [MutasiController::class, 'store']);
+    Route::get('/mutasi/{id}', [MutasiController::class, 'show']); 
+    Route::delete('/mutasi/{id}', [MutasiController::class, 'destroy']);
 
-    // 📜 History mutasi
-    Route::get('/produk/{id}/history', [MutasiController::class, 'historyByProduk']);
+    Route::get('/mutasi/produk/{id}', [MutasiController::class, 'historyByProduk']);
+    Route::get('/mutasi/user/{id}', [MutasiController::class, 'historyByUser']);
     Route::get('/user/{id}/history', [MutasiController::class, 'historyByUser']);
+    
+
 });
