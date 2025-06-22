@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Mutasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\JsonResponse;
+
 
 class MutasiController extends Controller
 {
@@ -14,8 +17,10 @@ class MutasiController extends Controller
     }
 
     // Simpan mutasi baru
-    public function store(Request $request)
-    {
+   public function store(Request $request)
+{
+    Log::info('Masuk ke MutasiController@store', ['request' => $request->all()]);
+    try {
         $validated = $request->validate([
             'user_id' => 'required|exists:users,id',
             'produk_id' => 'required|exists:produks,id',
@@ -30,7 +35,45 @@ class MutasiController extends Controller
         $mutasi = Mutasi::create($validated);
 
         return response()->json($mutasi, 201);
+    } catch (\Exception $e) {
+        Log::error('Gagal menyimpan mutasi', ['error' => $e->getMessage()]);
+        return response()->json([
+            'message' => 'Error saat menyimpan mutasi',
+            'error' => $e->getMessage(),
+        ], 500);
     }
+}
+
+public function update(Request $request, $id)
+{
+    try {
+        $mutasi = Mutasi::findOrFail($id);
+
+        $validated = $request->validate([
+            'user_id' => 'sometimes|exists:users,id',
+            'produk_id' => 'sometimes|exists:produks,id',
+            'lokasi_asal_id' => 'sometimes|exists:lokasis,id',
+            'lokasi_tujuan_id' => 'sometimes|exists:lokasis,id',
+            'tanggal' => 'sometimes|date',
+            'jenis_mutasi' => 'sometimes|in:masuk,keluar,pindah',
+            'jumlah' => 'sometimes|integer|min:1',
+            'keterangan' => 'nullable|string'
+        ]);
+
+        $mutasi->update($validated);
+
+        return response()->json([
+            'message' => 'Mutasi berhasil diperbarui',
+            'data' => $mutasi
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'message' => 'Gagal memperbarui mutasi',
+            'error' => $e->getMessage()
+        ], 500);
+    }
+}
+
 
     // Tampilkan detail mutasi
     public function show($id)

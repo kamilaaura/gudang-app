@@ -40,6 +40,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/mutasi', [MutasiController::class, 'store']);
     Route::get('/mutasi/{id}', [MutasiController::class, 'show']); 
     Route::delete('/mutasi/{id}', [MutasiController::class, 'destroy']);
+    Route::put('/mutasi/{id}', [MutasiController::class, 'update']);
+
 
     Route::get('/mutasi/produk/{id}', [MutasiController::class, 'historyByProduk']);
     Route::get('/mutasi/user/{id}', [MutasiController::class, 'historyByUser']);

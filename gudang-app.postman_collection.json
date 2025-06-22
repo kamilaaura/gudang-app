@@ -1,56 +1,602 @@
 {
 	"info": {
-		"_postman_id": "509c2a77-a928-4087-935d-106a6d1dcc36",
+		"_postman_id": "5527f6ec-d88a-4d23-b7d4-e32a564b0956",
 		"name": "gudang-app",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "46067041"
 	},
 	"item": [
 		{
-			"name": "login",
+			"name": "Registrasi",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama\" : \"mila\",\r\n    \"email\" : \"mila@ku.com\",\r\n    \"password\" : \"mila-aja\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "register",
+			"name": "Login",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"kamila@contoh.com\",\r\n    \"password\" : \"kamila123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "produk",
+			"name": "User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/me",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"me"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "lokasi",
+			"name": "Tambah Produk",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_produk\" : \"Stamper Kodok\",\r\n    \"kode_produk\" : \"ALT-S2\",\r\n    \"kategori\" : \"Alat Berat\",\r\n    \"satuan\" : \"Unit\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/produk",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"produk"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "mutasi",
+			"name": "List Produk",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/produk",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"produk"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "login1",
+			"name": "Tampilkan produk",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/produk/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"produk",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Produk",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"kode_produk\" : \"ALT-02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/produk/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"produk",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Produk",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/produk/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"produk",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tambah Lokasi",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"kode_lokasi\" : \"G-N02\",\r\n    \"nama_lokasi\" : \"Gudang Klojen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/lokasi",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"lokasi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Lokasi",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/lokasi",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"lokasi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Lokasi",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"kode_lokasi\" : \"G-M01\",\r\n    \"nama_lokasi\" : \"Gudang Mojokerto\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/lokasi/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"lokasi",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Lokasi",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/lokasi/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"lokasi",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Lokasi",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/lokasi/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"lokasi",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tambah Mutasi",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": 2,\r\n  \"produk_id\": 1,\r\n  \"lokasi_asal_id\": 2,\r\n  \"lokasi_tujuan_id\": 1,\r\n  \"tanggal\": \"2025-06-22\",\r\n  \"jenis_mutasi\": \"masuk\",\r\n  \"jumlah\": 50,\r\n  \"keterangan\": \"Tambah barang\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/mutasi",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mutasi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Mutasi",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/mutasi",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mutasi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Mutasi Copy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"jumlah\": 5,\r\n  \"keterangan\": \"Update jumlah karena kesalahan input\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/mutasi/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mutasi",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Mutasi",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|wYdiQZgiYHnVjJ1Rfh4rTtxHHIN3m18rYZEvbOL25066927a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/mutasi/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mutasi",
+						"4"
+					]
+				}
 			},
 			"response": []
 		}
